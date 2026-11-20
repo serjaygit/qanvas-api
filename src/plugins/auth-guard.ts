@@ -1,7 +1,7 @@
 import Elysia from "elysia";
 import { auth } from "../lib/auth";
 
-export const authPlugin = new Elysia({ name: "better-auth" })
+export const authGuard = new Elysia({ name: "better-auth" })
   .mount("/auth", auth.handler)
   .macro({
     auth: {
@@ -9,7 +9,9 @@ export const authPlugin = new Elysia({ name: "better-auth" })
         const session = await auth.api.getSession({
           headers,
         });
+
         if (!session) return status(401);
+
         return {
           user: session.user,
           session: session.session,
