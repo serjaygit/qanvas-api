@@ -13,7 +13,6 @@ export const auth = betterAuth({
     minPasswordLength: 8,
     maxPasswordLength: 128,
     revokeSessionsOnPasswordReset: true,
-    autoSignIn: true,
   },
   user: {
     deleteUser: {
@@ -21,6 +20,7 @@ export const auth = betterAuth({
     },
     changeEmail: { enabled: true },
   },
+
   session: {
     expiresIn: 60 * 60 * 24 * 7,
     updateAge: 60 * 60 * 24,
