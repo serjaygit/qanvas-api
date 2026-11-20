@@ -7,7 +7,12 @@ export const openApiPlugin = new Elysia().use(
     documentation: {
       components: await OpenAPI.components,
       paths: await OpenAPI.getPaths(),
+      info: {
+        title: "Qanvas API Documentation",
+        version: "1.0.0",
+      },
     },
+
     path: "/docs",
   }),
 );

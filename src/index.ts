@@ -1,6 +1,6 @@
 import cors from "@elysia/cors";
 import { Elysia } from "elysia";
-import { betterAuthPlugin } from "./plugins/better-auth";
+import { authPlugin } from "./plugins/better-auth";
 import { openApiPlugin } from "./plugins/openapi";
 
 const PORT = Number(process.env.PORT) ?? 4000;
@@ -14,7 +14,7 @@ const corsOptions = {
 
 const app = new Elysia()
   .use(cors(corsOptions))
-  .use(betterAuthPlugin)
+  .use(authPlugin)
   .use(openApiPlugin)
   .get("/", () => "Hello Elysia")
   .listen(PORT);

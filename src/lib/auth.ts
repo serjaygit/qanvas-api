@@ -10,6 +10,20 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
+    minPasswordLength: 8,
+    maxPasswordLength: 128,
+    revokeSessionsOnPasswordReset: true,
+    autoSignIn: true,
+  },
+  user: {
+    deleteUser: {
+      enabled: true,
+    },
+  },
+  session: {
+    expiresIn: 60 * 60 * 24 * 7,
+    updateAge: 60 * 60 * 24,
+    freshAge: 60 * 5,
   },
   plugins: [openAPI()],
 });
